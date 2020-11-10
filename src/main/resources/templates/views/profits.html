@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+	<h2>Project</h2>
+
+	<table id="tabla">
+		<tr>
+			<th>House number</th>
+			<th>Members</th>
+			<th>Profits</th>
+			<th>Phone</th>
+			<th>Children</th>
+		</tr>
+		<tbody>
+			<tr th:each="profits:${profits}">
+				<th scope="row" th:text="${profits.houseId}"></th>
+				<td th:text="${profits.members}"></td>
+				<td th:text="${profits.profits}"></td>
+				<td th:text="${profits.phone}"></td>
+				<td th:text="${profits.children}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<a th:href="@{/family/}" th:text="Go-back"></a>
+</body>
+</html>
